@@ -15,6 +15,9 @@ npm install
 #start cron in the background
 /usr/sbin/cron -f &
 
-# Start node server server.js
+# Start optional task in container
+$PRIMARY_START &
+
+# Start node server
 #node bin/www
 $NODE_START
