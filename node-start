@@ -1,0 +1,20 @@
+#!/bin/bash
+
+# Add gitlab to hosts file
+grep -q -F "$GIT_HOSTS" /etc/hosts  || echo $GIT_HOSTS >> /etc/hosts
+
+# Clone repo to container
+git clone -b $GIT_BRANCH $GIT_REPO /usr/src/app
+
+# Copy in post-merge script to run npm install
+echo post-merge >> /usr/src/app/.git/hooks/post-merge
+
+# Run npm install
+npm install
+
+#start cron in the background
+/usr/sbin/cron -f &
+
+# Start node server server.js
+#node bin/www
+$NODE_START
