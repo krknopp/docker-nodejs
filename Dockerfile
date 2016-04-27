@@ -5,8 +5,8 @@ MAINTAINER Kerry Knopp <kerry@codekoalas.com>
 RUN apt-get update \
  && apt-get install -y git-core cron && rm -rf /var/lib/apt/lists/*
 
-# Override Environment Variables
-ENV NPM_CONFIG_LOGLEVEL=warn
+# Predefine ENV
+ENV NODE_START="server.js"
 
 # Add files.
 ADD node-start /node-start
@@ -19,8 +19,6 @@ RUN crontab /root/crons.conf
 
 # Install pm2
 RUN npm install -g pm2
-
-#EXPOSE 8000
 
 WORKDIR /usr/src/app
 
