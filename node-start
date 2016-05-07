@@ -8,6 +8,7 @@ git clone -b $GIT_BRANCH $GIT_REPO /usr/src/app
 
 # Copy in post-merge script to run npm install
 cat /post-merge >> /usr/src/app/.git/hooks/post-merge
+chmod +x /usr/src/app/.git/hooks/post-merge
 
 # Run npm install
 npm install
