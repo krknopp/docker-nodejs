@@ -7,7 +7,7 @@ grep -q -F "$GIT_HOSTS" /etc/hosts  || echo $GIT_HOSTS >> /etc/hosts
 git clone -b $GIT_BRANCH $GIT_REPO /usr/src/app
 
 # Copy in post-merge script to run npm install
-echo post-merge >> /usr/src/app/.git/hooks/post-merge
+cat /post-merge >> /usr/src/app/.git/hooks/post-merge
 
 # Run npm install
 npm install
