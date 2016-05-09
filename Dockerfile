@@ -1,5 +1,5 @@
 # Drupal Dockerfile Config
-FROM node:4
+FROM node:0.12
 MAINTAINER Kerry Knopp <kerry@codekoalas.com>
 
 RUN apt-get update \
@@ -22,5 +22,4 @@ RUN npm install -g pm2
 
 WORKDIR /usr/src/app
 
-#CMD ["node" , "-g" , "server.js"]
 CMD ["bash" , "/node-start"]
