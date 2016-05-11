@@ -9,5 +9,8 @@ git clone -b $GIT_BRANCH $GIT_REPO /usr/src/app
 # Run npm install
 npm install
 
+# write ENV to file
+env > /root/env.txt
+
 #start cron in the background
 /usr/sbin/cron -f
