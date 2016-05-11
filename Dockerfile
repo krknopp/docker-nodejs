@@ -3,7 +3,7 @@ FROM node:4
 MAINTAINER Kerry Knopp <kerry@codekoalas.com>
 
 RUN apt-get update \
- && apt-get install -y git-core cron ssmtp mailutils && rm -rf /var/lib/apt/lists/*
+ && apt-get install -y git-core cron && rm -rf /var/lib/apt/lists/*
 
 # Predefine ENV
 ENV NODE_START="server.js"
