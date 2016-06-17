@@ -22,5 +22,4 @@ RUN npm install -g pm2
 
 WORKDIR /usr/src/app
 
-#CMD ["node" , "-g" , "server.js"]
 CMD ["bash" , "/node-start"]
