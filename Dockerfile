@@ -14,9 +14,6 @@ ADD ssmtp.conf /etc/ssmtp/ssmtp.conf
 ADD crons.conf /root/crons.conf
 ADD post-merge /post-merge
 
-#Add cron job
-RUN crontab /root/crons.conf
-
 # Install pm2
 RUN npm install -g pm2
 

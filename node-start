@@ -13,6 +13,9 @@ chmod +x /usr/src/app/.git/hooks/post-merge
 # Run npm install
 npm install
 
+# Import cron jobs
+crontab /root/crons.conf
+
 #start cron in the background
 /usr/sbin/cron -f &
 
