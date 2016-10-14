@@ -1,5 +1,5 @@
 # Drupal Dockerfile Config
-FROM node:4
+FROM node:6
 MAINTAINER Kerry Knopp <kerry@codekoalas.com>
 
 RUN apt-get update \
