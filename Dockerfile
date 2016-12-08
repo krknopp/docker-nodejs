@@ -15,7 +15,7 @@ ADD crons.conf /root/crons.conf
 ADD post-merge /post-merge
 
 # Install pm2
-RUN npm install -g pm2
+RUN npm install -g pm2 yarn bower
 
 WORKDIR /usr/src/app
 
