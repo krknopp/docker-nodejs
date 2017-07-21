@@ -1,5 +1,5 @@
 # Drupal Dockerfile Config
-FROM node:6
+FROM node:8
 MAINTAINER Kerry Knopp <kerry@codekoalas.com>
 
 RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -
