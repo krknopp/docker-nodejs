@@ -1,8 +1,5 @@
 #!/bin/bash
 
-# Add gitlab to hosts file
-grep -q -F "$GIT_HOSTS" /etc/hosts  || echo $GIT_HOSTS >> /etc/hosts
-
 # Export all env vars containing "_" to a file for use with cron jobs
 printenv | grep \_ | sed 's/^\(.*\)$/export \1/g' | sed 's/=/=\"/' | sed 's/$/"/g' > /root/project_env.sh
 chmod +x /root/project_env.sh
@@ -11,7 +8,7 @@ chmod +x /root/project_env.sh
 git clone -b $GIT_BRANCH $GIT_REPO /usr/src/app
 
 # Copy in post-merge script to run npm install
-cat /post-merge >> /usr/src/app/.git/hooks/post-merge
+cat /root/post-merge >> /usr/src/app/.git/hooks/post-merge
 chmod +x /usr/src/app/.git/hooks/post-merge
 
 # Run npm install
@@ -24,4 +21,5 @@ crontab /root/crons.conf
 /usr/sbin/cron -f &
 
 # Start node server server.js
-pm2 start --no-daemon $NODE_START --watch
+#pm2 start --no-daemon $NODE_START --watch
+$NODE_START

@@ -9,13 +9,13 @@ RUN apt-get update \
  && apt-get install -y git cron yarn vim --no-install-recommends && rm -rf /var/lib/apt/lists/*
 
 # Predefine ENV
-ENV NODE_START="server.js"
+ENV NODE_START="pm2 start --no-daemon server.js --watch"
 
 # Add files.
 ADD node-start /node-start
 ADD ssmtp.conf /etc/ssmtp/ssmtp.conf
 ADD crons.conf /root/crons.conf
-ADD post-merge /post-merge
+ADD post-merge /root/post-merge
 
 # Install pm2
 RUN npm install -g pm2 bower

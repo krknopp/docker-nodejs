@@ -1,8 +1,10 @@
 # docker-nodejs
 Custom Node Container
 
+# npm scripts
+`npm run setup` gets run on container startup
+
 **Environment Variables**  
-NODE_START - node file to start with pm2 (`server.js`)  
+NODE_START - Full startup command (i.e. `pm2 start --no-daemon index.js --watch` or `yarn start`)
 GIT_REPO - Git HTTPS URL  
 GIT_BRANCH - Git branch
-GIT_HOSTS - HOSTS file entry, if needed
