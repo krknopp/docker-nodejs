@@ -10,6 +10,7 @@ RUN apt-get update \
 
 # Predefine ENV
 ENV NODE_START="pm2 start --no-daemon server.js --watch"
+ENV NPM_CONFIG_LOGLEVEL warn
 
 # Add files.
 ADD node-start /node-start
